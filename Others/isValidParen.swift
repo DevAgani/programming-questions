@@ -1,6 +1,6 @@
 import Foundation
 
-func isValid(_ s: String) -> Bool {
+func isValid(_ s: String) -> Int {
     var stack = [Character]()
     let mapBrackets : [Character: Character] = ["}":"{", ")":"(", "]":"["]
     let openingBrackets = "([{"
@@ -10,15 +10,15 @@ func isValid(_ s: String) -> Bool {
         }
         else {
             if stack.isEmpty {
-                return false
+                return 0
             }
-            else if let last = stack.last, last == mapBrackets[char] {
-                stack.popLast()
+            else if  stack[stack.count - 1] == mapBrackets[char] {
+                stack.remove(at : stack.count - 1)
             }
             else {
-                return false
+                return 0
             }
         }
     }
-    return stack.isEmpty
+    return stack.isEmpty ? 1 : 0
 }
