@@ -21,7 +21,7 @@ import Foundation
                 if count > 1 {
                     dict[value] = [1,index]
                 } else {
-                    return indexa
+                    return index
                 }
 
             }
